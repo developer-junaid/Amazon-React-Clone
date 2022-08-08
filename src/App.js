@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Components
 import Header from "./Header";
 import Home from "./Home";
+import Checkout from "./Checkout";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
           element={
             <>
               <Header />
-              <h1>Checkout</h1>
+              <Checkout />
             </>
           }
         />

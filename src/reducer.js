@@ -8,15 +8,17 @@ export const getBasketTotal = (basket) =>
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_TO_BASKET":
-      console.log("Action: ", action);
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
 
+    case "ADD_TO_BASKET":
       // Logic for adding item to basket
       return { ...state, basket: [...state.basket, action.payload] };
 
     case "REMOVE_FROM_BASKET":
-      console.log("ID : ", action.id);
-
       let newBasket = [...state.basket];
 
       const index = state.basket.findIndex(
@@ -24,10 +26,6 @@ const reducer = (state, action) => {
       );
 
       if (index >= 0) {
-        // Item exists in basket, remove it ...
-        console.log("BASKET BEFORE: ", newBasket, action.id);
-
-        console.log("New Basket : ", newBasket);
         newBasket.splice(index, 1);
       } else {
         console.warn(
